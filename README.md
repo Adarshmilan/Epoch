@@ -1,53 +1,51 @@
-# Epoch
+# 📜 Epoch – On This Day in History
 
-Epoch is an Android application built for `com.example.epoch` supporting Android devices running API level 24 and above (targeting API level 37). The application utilizes AndroidX and Material libraries for its UI, ViewPager2 for page-based navigation, Coil for image loading, Retrofit and OkHttp for HTTP networking and JSON parsing, and Kotlin Coroutines for asynchronous execution.
+An Android app that shows what happened **on today's date** throughout history. Swipe vertically through full-screen cards – each one has the year, the event, an image and a button to read more on Wikipedia.
 
-## Tech Stack
+Data comes live from the **Wikipedia "On this day" REST API**.
 
-- **Platform:** Android (Min SDK: 24, Target SDK: 37, Compile SDK: 37)
-- **Language / Runtime:** Java 11 / Kotlin
-- **Build System:** Gradle (Kotlin DSL)
-- **Libraries & Frameworks:**
-  - AndroidX (Activity KTX, AppCompat, ConstraintLayout, Core KTX)
-  - Google Material Components
-  - ViewPager2 (`1.1.0`)
-  - Coil (`2.6.0`)
-  - Retrofit (`2.11.0`) & Gson Converter (`2.11.0`)
-  - OkHttp (`4.12.0`)
-  - Kotlinx Coroutines Android (`1.8.1`)
-- **Testing:**
-  - JUnit
-  - AndroidX Test JUnit
-  - Espresso Core
+## ✨ Features
 
-## Setup
+- Fetches today's historical events automatically on launch
+- Vertical, reels-style swiping between events (ViewPager2)
+- Event image loaded with Coil (thumbnail or original image)
+- Year, headline and a short Wikipedia extract on each card
+- "Read on Wikipedia" button opens the full article in the browser
+- Edge-to-edge layout with light and dark themes
 
-### Prerequisites
-- JDK 11
-- Android SDK (API 37)
+## 🔧 How it works
 
-### Build Commands
-
-To build the project:
-
-```bash
-./gradlew build
+```
+MainActivity
+  └─ Retrofit → GET https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/{MM}/{DD}
+        └─ HistoryResponse(events: List<HistoricalEvent>)
+              └─ FactAdapter (ViewPager2) → item_fact.xml card per event
 ```
 
-To compile and assemble the debug APK:
+| File | Purpose |
+|------|---------|
+| `MainActivity.kt` | Builds the Retrofit/OkHttp client, gets today's date, loads events in a coroutine |
+| `HistoricalEvent.kt` | Data classes matching the Wikipedia JSON (`year`, `text`, `pages`, thumbnails, URLs) |
+| `FactAdapter.kt` | Binds each event to a card, loads images with Coil, handles the Wikipedia button |
+
+## 🛠️ Tech stack
+
+- **Kotlin**, Android SDK (min 24, target 37)
+- AndroidX, Material Components, ViewPager2
+- **Retrofit** + Gson converter, **OkHttp**
+- **Coil** for image loading
+- Kotlin **Coroutines** (`lifecycleScope`)
+- Gradle Kotlin DSL with a version catalog (`gradle/libs.versions.toml`)
+
+## 🚀 Build & run
+
+Requirements: Android Studio (or JDK 11+ and the Android SDK 37).
 
 ```bash
-./gradlew assembleDebug
+git clone https://github.com/Adarshmilan/Epoch.git
+cd Epoch
+./gradlew assembleDebug          # APK → app/build/outputs/apk/debug/
+./gradlew installDebug           # install on a connected device/emulator
 ```
 
-To run unit tests:
-
-```bash
-./gradlew test
-```
-
-To run instrumented Android tests on an attached device or emulator:
-
-```bash
-./gradlew connectedAndroidTest
-```
+Or open the folder in Android Studio and press **Run**. The app needs an internet connection.
