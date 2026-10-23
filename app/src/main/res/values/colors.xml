@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Epoch palette: deep ink background with a warm "old gold" accent -->
+    <color name="epoch_bg">#FF0E0E13</color>
+    <color name="epoch_surface">#FF1A1A22</color>
+    <color name="epoch_surface_high">#FF24242E</color>
+    <color name="epoch_accent">#FFF4B942</color>
+    <color name="epoch_on_accent">#FF231800</color>
+    <color name="epoch_text">#FFFFFFFF</color>
+    <color name="epoch_text_secondary">#C7FFFFFF</color>
+    <color name="epoch_text_muted">#8AFFFFFF</color>
+    <color name="epoch_pill">#2EFFFFFF</color>
+    <color name="epoch_pill_stroke">#24FFFFFF</color>
 </resources>

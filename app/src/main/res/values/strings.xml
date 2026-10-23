@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Epoch</string>
+    <string name="on_this_day">On this day</string>
+    <string name="pick_date">Pick a date</string>
+    <string name="loading">Digging through history…</string>
+    <string name="error_title">Couldn\'t reach the archives</string>
+    <string name="error_message">Check your internet connection and try again.</string>
+    <string name="empty_title">Nothing recorded for this day</string>
+    <string name="empty_message">Try picking a different date.</string>
+    <string name="retry">Try again</string>
+    <string name="read_more">Read on Wikipedia</string>
+    <string name="share">Share</string>
+    <string name="share_via">Share via</string>
+    <string name="show_more">Show more</string>
+    <string name="show_less">Show less</string>
+    <string name="swipe_hint">Swipe up for more</string>
+    <string name="historical_image">Historical image</string>
+    <string name="this_year">This year</string>
+    <string name="no_link">No article available for this event</string>
+    <string name="counter_format">%1$d / %2$d</string>
+    <plurals name="years_ago">
+        <item quantity="one">%d year ago</item>
+        <item quantity="other">%,d years ago</item>
+    </plurals>
 </resources>

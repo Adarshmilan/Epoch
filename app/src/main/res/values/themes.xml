@@ -1,9 +1,27 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Epoch" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Epoch always uses an immersive dark look, so images and text stay readable. -->
+    <style name="Base.Theme.Epoch" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/epoch_accent</item>
+        <item name="colorOnPrimary">@color/epoch_on_accent</item>
+        <item name="colorPrimaryContainer">@color/epoch_surface_high</item>
+        <item name="colorOnPrimaryContainer">@color/epoch_accent</item>
+        <item name="colorSecondary">@color/epoch_accent</item>
+        <item name="colorOnSecondary">@color/epoch_on_accent</item>
+        <item name="colorSurface">@color/epoch_surface</item>
+        <item name="colorOnSurface">@color/epoch_text</item>
+        <item name="android:colorBackground">@color/epoch_bg</item>
+        <item name="android:windowBackground">@color/epoch_bg</item>
+        <item name="android:statusBarColor" tools:targetApi="21">@android:color/transparent</item>
+        <item name="android:navigationBarColor" tools:targetApi="21">@android:color/transparent</item>
     </style>
 
     <style name="Theme.Epoch" parent="Base.Theme.Epoch" />
+
+    <!-- Small uppercase label, e.g. "ON THIS DAY" -->
+    <style name="TextAppearance.Epoch.Overline" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textColor">@color/epoch_accent</item>
+        <item name="android:letterSpacing">0.18</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

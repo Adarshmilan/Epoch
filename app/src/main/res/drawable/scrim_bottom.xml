@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Dark fade from the bottom so text stays readable over any photo -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient
+        android:angle="90"
+        android:startColor="#F20B0B10"
+        android:centerColor="#990B0B10"
+        android:centerY="0.35"
+        android:endColor="#000B0B10" />
+</shape>
